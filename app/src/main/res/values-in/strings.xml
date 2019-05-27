@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MovieCatalogue</string>
+    <string name="action_settings">Ubah Pengaturan Bahasa</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Halo fragment kosong</string>
+    <string name="movie_popular">Film Terpopuler</string>
+    <string name="btn_see_popular">Lihat Semua</string>
+    <string name="movie_theater">Di Bioskop</string>
+    <string name="movie_name">Nama Film</string>
+    <string name="movie_year">2019</string>
+    <string name="movie_rating">7.9</string>
+    <string name="img_pop_movie">Gambar Film Populer</string>
+    <string name="movie_image">Gambar Film</string>
+    <string name="movie_title">Judul Title</string>
+    <string name="director">Pemimpin</string>
+    <string name="writer">Penulis</string>
+    <string name="rate_this">Beri Nilai</string>
+    <string name="screenplay">Skenario</string>
+    <string name="synopsis">Ringkasan</string>
+    <string name="tv_popular">Acara TV Terpopuler</string>
+    <string name="tv_rated">Acara TV Terbaik</string>
+    <string name="creator">Kreator</string>
+    <string name="wish">Ingin</string>
+    <string name="connection">Tolong periksa koneksi internet anda</string>
+    <string name="add_to">Tambah Ke Dalam Daftar Tonton</string>
+    <string name="season">Musim</string>
+    <string name="episode">Episode</string>
+    <string name="loading">Memuat…</string>
+    <string name="backdrop_image">Gambar Latar Belakang</string>
+    <string name="detail_movie">Detil Film</string>
+    <string name="cast">Pemeran</string>
+    <string name="detail">Detil</string>
+    <string name="overview">Ringkasan</string>
+    <string name="storyline">Alur Cerita</string>
+    <string name="genre">Genre</string>
+    <string name="release_date">Tanggal Rilis</string>
+    <string name="country_of_origin">Negara Asal</string>
+    <string name="duration">Durasi</string>
+    <string name="dislike">Tidak Suka</string>
+    <string name="like">Suka</string>
+    <string name="info">Info</string>
+    <string name="related">Terkait</string>
+    <string name="search">Cari</string>
+    <string name="favorite">Favorit</string>
+    <string name="search_hint">Cari Film</string>
+    <string name="appwidget_text">CONTOH</string>
+    <string name="add_widget">Tambah widget</string>
+    <string name="empty_text">TIDAK ADA DATA</string>
+    <string name="movies">film</string>
+    <string name="tvshows">acara tv</string>
+    <string name="movie">film</string>
+    <string name="tv_show">acara tv</string>
+    <string name="star_icon">Ikon star</string>
+    <string name="language_spoken">Bahasa yang Digunakan</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="movie"
+            type="com.yudhapn.moviecatalogue.model.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/ItemLayout">
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardItem.Horizontal"
+            android:id="@+id/cardview_movie"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/movie_image"
+                android:layout_width="160dp"
+                android:layout_height="240dp"
+                android:scaleType="fitXY"
+                android:background="@color/shimmerBackground"
+                android:contentDescription="@string/img_pop_movie"
+                app:posterUrl="@{movie.posterPath}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/movie_name_text"
+            style="@style/TextContent.MovieTitle"
+            android:text="@{movie.title.length() > 30 ? (movie.title.substring(0, 30) + `...`) : movie.title}"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardview_movie" />
+
+        <ImageView
+            android:id="@+id/score_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/movie_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/movie_name_text"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/movie_name_text"
+            app:srcCompat="@drawable/ic_star_filled" />
+
+        <TextView
+            android:id="@+id/movie_rate_text"
+            style="@style/TextContent.White"
+            android:layout_marginStart="4dp"
+            android:text="@{movie.voteAverage}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/score_star"
+            app:layout_constraintStart_toEndOf="@+id/score_star"
+            app:layout_constraintTop_toTopOf="@+id/score_star" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

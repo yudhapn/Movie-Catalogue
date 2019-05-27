@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout">
+
+    <data>
+        <variable
+            name="genre"
+            type="String" />
+
+        <variable
+            name="language"
+            type="String" />
+
+        <variable
+            name="detailTvShow"
+            type="com.yudhapn.moviecatalogue.model.DetailTvShow" />
+
+        <variable
+            name="detailMovie"
+            type="com.yudhapn.moviecatalogue.model.DetailMovie" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="#0D1D38">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/storyline_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/storyline"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/overview_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/overview"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/storyline_placeholder" />
+
+                    <TextView
+                        android:id="@+id/overview_movie_placeholder"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@{detailMovie == null ? detailTvShow.overview : detailMovie.overview}"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="13sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/overview_placeholder"
+                        app:layout_constraintTop_toBottomOf="@+id/overview_placeholder" />
+
+
+                    <TextView
+                        android:id="@+id/genre_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/genre"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@+id/overview_movie_placeholder"
+                        app:layout_constraintTop_toBottomOf="@+id/overview_movie_placeholder" />
+
+                    <TextView
+                        android:id="@+id/genre_movie_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@{genre.substring(0, (genre.length() - 2))}"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="@+id/genre_placeholder"
+                        app:layout_constraintTop_toBottomOf="@+id/genre_placeholder" />
+
+                    <View
+                        android:id="@+id/view_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/genre_movie_placeholder" />
+
+                    <TextView
+                        android:id="@+id/cast_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/cast"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_placeholder" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_cast_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cast_placeholder" />
+
+                    <View
+                        android:id="@+id/view2_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@android:color/darker_gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rv_cast_placeholder" />
+
+                    <TextView
+                        android:id="@+id/detail_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/detail"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view2_placeholder" />
+
+                    <TextView
+                        android:id="@+id/release_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/release_date"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_placeholder" />
+
+                    <TextView
+                        android:id="@+id/release_date_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@{detailMovie == null ? detailTvShow.firstAirDate : detailMovie.releaseDate}"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/release_placeholder" />
+
+                    <TextView
+                        android:id="@+id/country_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/country_of_origin"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="16sp"
+                        android:visibility="@{detailMovie == null ? View.INVISIBLE : View.VISIBLE}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/language_spoken_placeholder" />
+
+                    <TextView
+                        android:id="@+id/country_origin_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@{(detailMovie == null) ? `` : detailMovie.productionCountries.get(0).getName()}"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="13sp"
+                        android:visibility="@{detailMovie == null ? View.INVISIBLE : View.VISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/country_placeholder" />
+
+                    <TextView
+                        android:id="@+id/language_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@string/language_spoken"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/release_date_placeholder" />
+
+                    <TextView
+                        android:id="@+id/language_spoken_placeholder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/shimmerBackground"
+                        android:text="@{language.substring(0, (language.length() - 2))}"
+                        android:textColor="@color/shimmerBackground"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/language_placeholder" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/root_layout"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/storyline_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/storyline"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/overview_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/overview"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storyline_label" />
+
+                <TextView
+                    android:id="@+id/overview_movie"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="18dp"
+                    android:text="@{detailMovie == null ? detailTvShow.overview : detailMovie.overview}"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/overview_label"
+                    app:layout_constraintTop_toBottomOf="@+id/overview_label" />
+
+
+                <TextView
+                    android:id="@+id/genre_label2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/genre"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/overview_movie"
+                    app:layout_constraintTop_toBottomOf="@+id/overview_movie" />
+
+                <TextView
+                    android:id="@+id/genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{genre.substring(0, (genre.length() - 2))}"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="@+id/genre_label2"
+                    app:layout_constraintTop_toBottomOf="@+id/genre_label2" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/genre" />
+
+                <TextView
+                    android:id="@+id/cast_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/cast"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_cast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cast_label" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_cast" />
+
+                <TextView
+                    android:id="@+id/detail_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/detail"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+                <TextView
+                    android:id="@+id/release_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/release_date"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_label" />
+
+                <TextView
+                    android:id="@+id/release_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{detailMovie == null ? detailTvShow.firstAirDate : detailMovie.releaseDate}"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/release_label" />
+
+                <TextView
+                    android:id="@+id/country_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/country_of_origin"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:visibility="@{detailMovie == null ? View.INVISIBLE : View.VISIBLE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/language_spoken" />
+
+                <TextView
+                    android:id="@+id/country_origin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@{(detailMovie == null) ? `` : detailMovie.productionCountries.get(0).getName()}"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:visibility="@{detailMovie == null ? View.INVISIBLE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/country_label" />
+
+                <TextView
+                    android:id="@+id/language_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/language_spoken"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/release_date" />
+
+                <TextView
+                    android:id="@+id/language_spoken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{language.substring(0, (language.length() - 2))}"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/language_label" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

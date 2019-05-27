@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ItemLayout">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        style="@style/CardItem.Horizontal"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_placeholder"
+            android:layout_width="160dp"
+            android:layout_height="240dp"
+            android:background="@color/shimmerBackground"
+            android:contentDescription="@string/img_pop_movie"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title_placeholder"
+        style="@style/TextContent.MovieTitle"
+        android:background="@color/shimmerBackground"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardview"/>
+
+    <TextView
+        android:id="@+id/tv_pop_year"
+        style="@style/TextContent.White"
+        android:layout_width="80dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/shimmerBackground"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/title_placeholder"
+        app:layout_constraintStart_toStartOf="@+id/title_placeholder" />
+</androidx.constraintlayout.widget.ConstraintLayout>

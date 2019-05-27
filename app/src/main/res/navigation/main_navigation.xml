@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/movie_dest">
+
+    <fragment
+        android:id="@+id/movie_dest"
+        android:name="com.yudhapn.moviecatalogue.view.MovieFragment"
+        android:label="Movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_show_detail_movie"
+            app:destination="@id/detail_movie_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvshow_dest"
+        android:name="com.yudhapn.moviecatalogue.view.TVShowFragment"
+        android:label="TV Show"
+        tools:layout="@layout/fragment_tvshow" >
+        <action
+            android:id="@+id/action_show_detail_tvshow"
+            app:destination="@id/detail_tvshow_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_tvshow_dest"
+        android:name="com.yudhapn.moviecatalogue.view.DetailTvShowFragment"
+        android:label="TV Show"
+        tools:layout="@layout/fragment_detail_tv_show">
+        <argument
+            android:name="tvshowArgs"
+            app:argType="com.yudhapn.moviecatalogue.model.TvShow" />
+        <action
+            android:id="@+id/action_show_detail_tvshow"
+            app:destination="@id/detail_tvshow_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_movie_dest"
+        android:name="com.yudhapn.moviecatalogue.view.DetailMovieFragment"
+        android:label="Movie"
+        tools:layout="@layout/fragment_detail_movie" >
+        <argument android:name="movieArgs"
+            app:argType="com.yudhapn.moviecatalogue.model.Movie" />
+        <action
+            android:id="@+id/action_show_detail_movie"
+            app:destination="@id/detail_movie_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorite_dest"
+        android:name="com.yudhapn.moviecatalogue.view.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_show_detail_movie"
+            app:destination="@id/detail_movie_dest" />
+        <action
+            android:id="@+id/action_show_detail_tvshow"
+            app:destination="@id/detail_tvshow_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/search_dest"
+        android:name="com.yudhapn.moviecatalogue.view.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_show_detail_tvshow"
+            app:destination="@id/detail_tvshow_dest" />
+        <action
+            android:id="@+id/action_show_detail_movie"
+            app:destination="@id/detail_movie_dest" />
+    </fragment>
+</navigation>
